@@ -153,7 +153,7 @@ class ETL:
             ultimo_importe = int(ultimo_importe)
             condition = self.porcentaje * promedio_importe
             
-            if ultimo_importe*0.1<= condition:
+            if ultimo_importe<= condition:
 
                 data_rebajas = {
                     'pais' : pais,

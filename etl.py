@@ -19,7 +19,7 @@ class ETL:
         self.DATE = self.getDate()
         self.URL ='https://www.turismocity.com.ar/vuelos-baratos-a-'
         self.FROM = '?from=BUE'
-        self.porcentaje = 0.80
+        self.porcentaje = 0.90
         self.ejecuciones_diarias = 4
         self.dias_atras = 30
 

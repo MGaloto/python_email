@@ -148,20 +148,23 @@ class ETL:
         rebajas = []
 
         for pais, ultimo_importe in ultimos_importes.items():
-            df_filtrado = df_sin_ultimos_importes[df_sin_ultimos_importes['pais'] == pais].tail(self.ejecuciones_diarias * self.dias_atras)
-            promedio_importe = int(df_filtrado['importe'].mean())
-            ultimo_importe = int(ultimo_importe)
-            condition = self.porcentaje * promedio_importe
+            try:
+                df_filtrado = df_sin_ultimos_importes[df_sin_ultimos_importes['pais'] == pais].tail(self.ejecuciones_diarias * self.dias_atras)
+                promedio_importe = int(df_filtrado['importe'].mean())
+                ultimo_importe = int(ultimo_importe)
+                condition = self.porcentaje * promedio_importe
             
-            if ultimo_importe<= condition:
+                if ultimo_importe<= condition:
 
-                data_rebajas = {
-                    'pais' : pais,
-                    'importe' : ultimo_importe,
-                    'precio_anterior' : round(promedio_importe),
-                    'descuento' : round(((ultimo_importe - promedio_importe) / promedio_importe) *100)
-                }
-                rebajas.append(data_rebajas)
+                    data_rebajas = {
+                        'pais' : pais,
+                        'importe' : ultimo_importe,
+                        'precio_anterior' : round(promedio_importe),
+                        'descuento' : round(((ultimo_importe - promedio_importe) / promedio_importe) *100)
+                    }
+                    rebajas.append(data_rebajas)
+            except:
+                continue
 
         if len(rebajas) > 0:
             correo = os.environ.get('EMAIL')

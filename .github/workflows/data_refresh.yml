@@ -1,0 +1,29 @@
+name: Data Refresh
+
+on: 
+  push:
+    branches: [main, master]
+  schedule:  
+    - cron: '0 21 * * *'
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest 
+    permissions:
+      contents: write
+      actions: write
+      pages: write
+
+    container: 
+      image: python:3.8
+    steps:
+    - name: checkout_repo
+      uses: actions/checkout@v3
+      with: 
+        ref: 'main'
+    - name: Ejecutar script
+      run: python main.py
+      env:
+        EMAIL: ${{ secrets.EMAIL }}
+        PSS: ${{ secrets.PSS }}
+

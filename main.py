@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 import os
 
 smtp_server = 'smtp.gmail.com'
-myemail = os.environ('EMAIL')
+myemail = os.environ.get('EMAIL')
 smtp_port = 587
 
 
@@ -17,7 +17,7 @@ msg['To'] = myemail
 
 server = smtplib.SMTP(smtp_server, smtp_port)
 server.starttls()
-server.login(myemail, os.environ('PSS'))
+server.login(myemail, os.environ.get('PSS'))
 
 server.send_message(msg)
 

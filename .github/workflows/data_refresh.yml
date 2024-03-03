@@ -4,7 +4,7 @@ on:
   push:
     branches: [main, master]
   schedule:  
-    - cron: '0 21 * * *'
+    - cron: '0 5,11,16 * * *'
 
 jobs:
   update-data:
@@ -15,14 +15,14 @@ jobs:
       pages: write
 
     container: 
-      image: python:3.8
+      image: mgaloto/scrapppython:02
     steps:
     - name: checkout_repo
       uses: actions/checkout@v3
       with: 
         ref: 'main'
     - name: Ejecutar script
-      run: python main.py
+      run: python etl.py
       env:
         EMAIL: ${{ secrets.EMAIL }}
         PSS: ${{ secrets.PSS }}

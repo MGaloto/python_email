@@ -145,31 +145,41 @@ class ETL:
         ultimos_importes = df.groupby('pais')['importe'].last()
         df_sin_ultimos_importes = df.iloc[:-len(destinos)]
 
-        rebajas = []
+        datos = []
 
         for pais, ultimo_importe in ultimos_importes.items():
             try:
                 df_filtrado = df_sin_ultimos_importes[df_sin_ultimos_importes['pais'] == pais].tail(self.ejecuciones_diarias * self.dias_atras)
                 promedio_importe = int(df_filtrado['importe'].mean())
                 ultimo_importe = int(ultimo_importe)
-                condition = self.porcentaje * promedio_importe
+                condition_descuento = self.porcentaje * promedio_importe
+                condition_aumento = ((1-self.porcentaje ) +1) * promedio_importe
             
-                if ultimo_importe<= condition:
+                if ultimo_importe<= condition_descuento:
 
                     data_rebajas = {
                         'pais' : pais,
                         'importe' : ultimo_importe,
                         'precio_anterior' : round(promedio_importe),
-                        'descuento' : round(((ultimo_importe - promedio_importe) / promedio_importe) *100)
+                        'variacion' : round(((ultimo_importe - promedio_importe) / promedio_importe) *100)
                     }
-                    rebajas.append(data_rebajas)
+                    datos.append(data_rebajas)
+
+                if ultimo_importe > condition_aumento:
+                    data_aumentos = {
+                        'pais' : pais,
+                        'importe' : ultimo_importe,
+                        'precio_anterior' : round(promedio_importe),
+                        'variacion' : round(((ultimo_importe - promedio_importe) / promedio_importe) *100)
+                    }
+                    datos.append(data_aumentos)
             except:
                 continue
 
-        if len(rebajas) > 0:
+        if len(datos) > 0:
             correo = os.environ.get('EMAIL')
             pss = os.environ.get('PSS')
-            email = SendEmail(rebajas, correo, pss)
+            email = SendEmail(datos, correo, pss)
             email.run()
 
             

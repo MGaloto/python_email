@@ -31,8 +31,8 @@ class SendEmail:
         for d in data_order:
             pais = d['pais']
             ultimo_importe = '{:,}'.format(d['importe'])
-            descuento = '% ' + str(d['descuento'])
-            mensaje += f"Pais: {pais}, Último Importe: {ultimo_importe}, Descuento: {descuento}\n"
+            variacion = '% ' + str(d['variacion'])
+            mensaje += f"Pais: {pais}, Último Importe: {ultimo_importe}, Variacion: {variacion}\n"
 
 
         msg = MIMEText(mensaje)

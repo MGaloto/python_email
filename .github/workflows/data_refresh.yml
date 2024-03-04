@@ -26,4 +26,6 @@ jobs:
       env:
         EMAIL: ${{ secrets.EMAIL }}
         PSS: ${{ secrets.PSS }}
+    - name: Commit
+      run: bash ./bash/commit.sh "MGaloto" "maxigaloto@hotmail.com"
 

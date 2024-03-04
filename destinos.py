@@ -20,5 +20,9 @@ class Destinos:
                 {'code':'HKT','pais':'Tailandia Phuket'},
                 {'code':'DPS','pais':'Indonesia'},
                 {'code':'MLE','pais':'Maldivas'},
-                {'code':'PUJ','pais':'Punta Cana'}
+                {'code':'PUJ','pais':'Punta Cana'},
+                {'code':'NAS','pais':'Bahamas'},
+                {'code':'HAV','pais':'Cuba Havanna'},
+                {'code':'FEN','pais':'Fer Noronha'}
+                
                 ]

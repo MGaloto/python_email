@@ -23,6 +23,24 @@ class Destinos:
                 {'code':'PUJ','pais':'Punta Cana'},
                 {'code':'NAS','pais':'Bahamas'},
                 {'code':'HAV','pais':'Cuba Havanna'},
-                {'code':'FEN','pais':'Fer Noronha'}
+                {'code':'FEN','pais':'Fer Noronha'},
+                {'code': 'JFK', 'pais': 'Nueva York'},
+                {'code': 'CDG', 'pais': 'París'},
+                {'code': 'SYD', 'pais': 'Sídney'},
+                {'code': 'DXB', 'pais': 'Dubái'},
+                {'code': 'GRU', 'pais': 'Sao Paulo'},
+                {'code': 'BKK', 'pais': 'Bangkok'},
+                {'code': 'DEL', 'pais': 'Delhi'},
+                {'code': 'JNB', 'pais': 'Johannesburgo'},
+                {'code': 'LAX', 'pais': 'Los Ángeles'},
+                {'code': 'PEK', 'pais': 'Pekín'},
+                {'code': 'IST', 'pais': 'Estambul'},
+                {'code': 'NRT', 'pais': 'Tokio'},
+                {'code': 'MEX', 'pais': 'Ciudad de México'},
+                {'code': 'BCN', 'pais': 'Barcelona'},
+                {'code': 'SIN', 'pais': 'Singapur'},
+                {'code': 'MIA', 'pais': 'Miami'},
+                {'code': 'CPH', 'pais': 'Copenhague'},
+                {'code': 'SYD', 'pais': 'Sídney'}
                 
                 ]

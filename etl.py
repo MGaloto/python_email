@@ -136,9 +136,11 @@ class ETL:
             if validation == False:
                 existing_df = pd.concat([existing_df, df], ignore_index=True)
                 existing_df = existing_df.drop_duplicates()
-                existing_df.sort_values(by=['pais', 'date']).to_csv(file_name, index=False)
+                existing_df.sort_values(['pais', 'date']).groupby('pais').tail(300).to_csv(file_name, index=False)
+
+        
         else:
-            df.sort_values(by=['pais', 'date']).to_csv(file_name, index=False)
+            df.sort_values(['pais', 'date']).groupby('pais').tail(300).to_csv(file_name, index=False)
 
         
         df = pd.read_csv(file_name)

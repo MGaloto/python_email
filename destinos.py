@@ -41,6 +41,7 @@ class Destinos:
                 {'code': 'SIN', 'pais': 'Singapur'},
                 {'code': 'MIA', 'pais': 'Miami'},
                 {'code': 'CPH', 'pais': 'Copenhague'},
-                {'code': 'SYD', 'pais': 'Sídney'}
+                {'code': 'SYD', 'pais': 'Sídney'},
+                {'code': 'LIM', 'pais': 'Lima'}
                 
                 ]

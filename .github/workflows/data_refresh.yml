@@ -3,8 +3,8 @@ name: Data Refresh
 on: 
   push:
     branches: [main, master]
-  schedule:  
-    - cron: '0 22 * * *'
+  #schedule:  
+    # - cron: '0 22 * * *'
 
 jobs:
   update-data:

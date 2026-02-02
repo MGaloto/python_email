@@ -14,6 +14,7 @@ import pprint
 from sendemail import SendEmail
 
 
+
 class ETL:
     def __init__(self) -> None:
         self.DATE = self.getDate()
